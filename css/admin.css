@@ -1,0 +1,43 @@
+/**************************************************************************************************/
+/*
+/*		File:
+/*			admin.css
+/*		Description:
+/*			This file contains CSS for the administrative aspects of the plugin.
+/*		Date:
+/*			Added on April 29th 2011 for Members List v3.4 for Wordpress
+/*		Copyright:
+/*			Copyright (c) 2011 Matthew Praetzel.
+/*		License:
+/*			License:
+/*			This software is licensed under the terms of the GNU Lesser General Public License v3
+/*			as published by the Free Software Foundation. You should have received a copy of of
+/*			the GNU Lesser General Public License along with this software. In the event that you
+/*			have not, please visit: http://www.gnu.org/licenses/gpl-3.0.txt
+/*
+/**************************************************************************************************/
+
+/*-----------------------
+	html
+-----------------------*/
+a { cursor:hand;cursor:pointer; }
+.clear { clear:both; }
+/*-----------------------
+	Forms
+-----------------------*/
+.add_item { display:none; }
+#members_list_add_item_form { padding:40px; }
+#members_list_add_item_form fieldset { display:inline;width:100%;border:0;margin:0;padding:0;vertical-align:top; }
+#members_list_add_item_form fieldset.half { width:48%; }
+#members_list_add_item_form label { display:block;margin:20px 0 4px; }
+#members_list_add_item_form input { width:100%;padding:2px 0;font-size:20px; }
+#members_list_add_item_form input.chk { width:auto; }
+#members_list_add_item_form input.btn { width:auto;margin-top:20px;padding:3px 10px; }
+#wpbody-content .chk { width:auto;margin:0 4px 0 0; }
+
+.errors_cn { position:relative;clear:both;overflow:hidden;width:100%;height:1px;border:1px solid #990000;visibility:hidden; }
+.errors { position:absolute;padding:20px;color:#990000; }
+.errors ul { margin:0px;padding:0px;list-style:none; }
+.errors li { margin:0px;padding:0px; }
+.errors li li { padding:5px 10px 5px 10px; }
+.req { font-weight:bold;color:#990000; }
