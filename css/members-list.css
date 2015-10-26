@@ -75,3 +75,67 @@ html>/**/body #tern_members .tern_wp_members_list li {height:auto;}
 /*overwrite cci_underscores_theme */
 .tern_wp_members_list table.cciDirectory{padding:1px;margin:0;}
 #tern_members > ul.tern_wp_members_list > li{ margin:0!important;}
+.site-content, #content {margin:0 auto; float:none;} /* Center the profiles and directory homepage*/
+.tern_members_alpha {text-align:center !important;} /*Center the Alphabetical sort on homepage */
+body.page-id-43 header.entry-header,
+body.page-id-43 .directorySelect,
+body.home header.entry-header,
+body.home .directorySelect{text-align:center;}
+
+
+/* attempt to make site responsive */
+table.cciDirectory {
+  margin: 1em 0;
+  min-width: 300px;
+}
+table.cciDirectory td {
+  display: block;
+}
+table.cciDirectory td:first-child {
+  padding-top: .5em;
+}
+table.cciDirectory td:last-child {
+  padding-bottom: .5em;
+}
+@media (min-width: 480px) {
+  table.cciDirectory td:before {
+    display: none;
+  }
+}
+table.cciDirectory td {
+  text-align: left;
+}
+@media (min-width: 480px) {
+table.cciDirectory td {
+    display: table-cell;
+    padding: .25em .5em;
+  }
+table.cciDirectory td:first-child {
+    padding-left: 9px;
+  }
+table.cciDirectory td:last-child {
+    padding-right: 0;
+  }
+}
+
+table.cciDirectory {
+  overflow: hidden;
+}
+table.cciDirectory td {
+  margin: .5em 1em;
+}
+@media screen and (max-width: 480px) {
+table.cciDirectory td {
+    border-bottom-width: 0!important;
+    border-top-width: 0!important;	
+   }
+}
+table.cciDirectory td:before {
+  color: #000;
+}
+
+/* Unrestrict Directory table width on home and /directory/ */
+body.page-id-43 .site-content,
+body.home .site-content {
+  max-width:74%;
+}
