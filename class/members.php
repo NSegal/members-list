@@ -416,35 +416,115 @@ class tern_members {
 		if($e) { echo $r; }
 		return $r;
 	}
-	function markup($u) {
+	
+	function markup($u) { // Html Markup Generator
 		global $tern_wp_members_defaults,$getMap;
 		$o = $this->wp->getOption('tern_wp_members',$tern_wp_members_defaults);
-		$s = '<li>'."\n    ";
-		if($o['gravatars']) {
-			$s .= '<a class="tern_wp_member_gravatar" href="'.get_author_posts_url($u->ID).'">'."\n        ".get_avatar($u->ID,60)."\n    ".'</a>'."\n    ";
-		}
-		$s .= '<div class="tern_wp_member_info">';
-		foreach($o['fields'] as $k => $v) {
-			if($v['name'] == 'user_email' and $o['hide_email'] and !is_user_logged_in()) {
+		
+		/* ____ $o ______
+		 * $o (Output) will contain an array with 15 keys for each table row being printed out. 
+		 * Those 15 keys returned in $o are: noun, limit, hide_email, hide, sort, order, allow_display, gravatars, meta, sorts, url, hidden, searches, fields, and lists. 
+		 * Only $o['fields'], $o['hide_email'], and $o['gravatars'] are used later on in this html markup generating function.
+		 * $o['fields'] contains 4 more arrays display_name[], phone[], office, and Email Address[]. 
+		 *    $o['fields']['display_name']['markup']  = <table width="700px" class="cciDirectory "><tr><td style="width:200px"><div style="width:200px"><a class="name" href="%author_url%">%value%</a></div></td>
+		 *    $o['fields']['phone']['markup']         = <td class="phone" style="width:125px"><div style="width:125px">%value%</div></td>
+		 *    $o['fields']['office']['markup']        = <td class="office" style="width:100px"><div style="width:100px">%value%</div></td>
+		 *    $o['fields']['Email Address']['markup'] = <td class="email" style="width:275px"><div style="width:275px"><a href="mailto:%value%">%value%</a></div></td></tr></table>
+		 *
+		 *
+		 * ____$u ____
+		 * $u will contain an object with 6 properties: data, ID, caps, cap_key, roles, allcaps, filter.
+		 * $u->data->user_login = jladams
+		 * $u->data->user_email = jladams@fsu.edu 
+		 * $u->data->display_name = Jonathan Adams
+		 * $u does not contain a profile image anywhere. 
+		 *
+		 *
+		 * ____ Example of how to print out an array within an array (AKA: Multidimensional array): ____
+		 *	foreach ($o['fields'] as $key1 => $value1){
+		 *		echo $key1 . " : " . $value1 . "\n";
+		 *		foreach ($value1 as $key2 => $value2){
+		 *			echo " " . $key2 . " - " . $value2 . "\n";
+		 *		}
+      	 *  } // Then view source of webpage.
+		 *
+		 *
+		 *
+		 */
+		
+		$s = '<li>' . "\n"; // Start HTML string
+
+
+		/*  The following check is useless. $['gravatars'] always returns with the string "0" (minus the quotes);
+         *
+		 * if($o['gravatars']) {
+		 *	  $s .= '<a class="tern_wp_member_gravatar" href="'.get_author_posts_url($u->ID).'">'."\n        ".get_avatar($u->ID,60)."\n    ".'</a>'."\n    ";
+		 * }
+         *
+		 */
+
+
+		$s .= '<div class="tern_wp_member_info">'; //Append more to String.
+ 	
+
+
+		foreach($o['fields'] as $k => $v) { //$k = Key. $v = Value.
+			
+
+			// This check is unneccessary/useless. The hide_email key in $o below is a boolean flag theoretically used to hide a users email address from the homepage. We do not use this flag hence it is always set to 0.
+			/*
+			  if($v['name'] == 'user_email' and $o['hide_email'] and !is_user_logged_in()) {
 				continue;
-			}
-			elseif($v['name'] == 'user_email') {
-				$s .= "\n        <a href='mailto:".$u->$v['name']."'>".str_replace('%value%',$u->$v['name'],$v['markup']).'</a>';
+			  }
+			*/
+			
+
+			// Prints out unnecessary html. (0px by 0px anchor tags).
+			/*elseif($v['name'] == 'user_email') {
+				$s .= "\n        <a class='fjdskl' href='mailto:".$u->$v['name']."'>".str_replace('%value%',$u->$v['name'],$v['markup']).'</a>';
 				continue;
-			}
-			//if($v['name'] == 'distance' and !empty($_GET['byradius'])) {
-			//	$r = $getMap->geoLocate(array('zip'=>$_GET['byradius']));
-			//	$lat = $r['lat'];
-			//	$lng = $r['lng'];
-			//	$distance = (6371 * 2 * asin( sqrt( pow( sin( deg2rad( $lat - $u->_lat ) / 2 ), 2 ) + cos( deg2rad( $lat ) ) * cos( deg2rad( $u->_lat ) ) * pow( sin( deg2rad( $lng - $u->_lng ) / 2 ), 2 ) ) ))/1.609344;
-			//	$s .= "\n        ".str_replace('%author_url%',get_author_posts_url($u->ID),str_replace('%value%',round($distance).' miles',$v['markup']));
-			//}
-			if(!empty($u->$v['name'])) {
-				$s .= "\n        ".str_replace('%author_url%',get_the_author_meta('profilelink',$u->ID),str_replace('%value%',$u->$v['name'],$v['markup']));
-			}
+			}*/
+
+
+			// More Trash just with lots of math.
+			//  if($v['name'] == 'distance' and !empty($_GET['byradius'])) {
+			//		$r = $getMap->geoLocate(array('zip'=>$_GET['byradius']));
+			//		$lat = $r['lat'];
+			//		$lng = $r['lng'];
+			//		$distance = (6371 * 2 * asin( sqrt( pow( sin( deg2rad( $lat - $u->_lat ) / 2 ), 2 ) + cos( deg2rad( $lat ) ) * cos( deg2rad( $u->_lat ) ) * pow( sin( deg2rad( $lng - $u->_lng ) / 2 ), 2 ) ) ))/1.609344;
+			//		$s .= "\n        ".str_replace('%author_url%',get_author_posts_url($u->ID),str_replace('%value%',round($distance).' miles',$v['markup']));
+			//	}
+			
+
+
+			/* Edit: on October 26, 2015, Nick Segal removed an if statement surrounding the following line which previously was "if(!empty($u->$v['name'])) {}"  */
+			/* This will append the 4 columns of the Faculty & staff table, 1) Name, 2) Phone number, 3) Building number, and 4) Email address to the growing string, $s*/
+			$s .= "\n        ".str_replace('%author_url%',get_the_author_meta('profilelink',$u->ID),str_replace('%value%',$u->$v['name'],$v['markup']));
+			
+			/*
+			 *	--- Example usage of str_replace():  ---
+		 	 *  str_replace("%body%", "black", "<body text='%body%'>");
+		 	 *  provides: <body text='black'>
+			 *
+			 */
+
+			/*  --- The function call "get_the_author_meta('profilelink',$u->ID)" above returns links like: ---
+			 * 			http://directory.sitedev.cci.fsu.edu/jonathan-adams/
+			 *      	http://directory.sitedev.cci.fsu.edu/warren-allen/
+			 *      	http://directory.sitedev.cci.fsu.edu/kimberly-amos-tata/
+			 *      	etc...
+			 */
+
+			//[DEBUG] Uncomment this next line if debugging. Ultra helpful:
+			//echo 'String length: ' . strlen($u->$v['name']) . " characters, String contains: " . $u->$v['name'] . '<br>';
+			
+		
+			
 		}
-		return $s."\n    ".'</div>'."\n".'</li>';
+		return $s."\n    ".'</div>'."\n".'</li>'; //Print out $s, a string with values that could contain a XSS security vulnerability. Then close the DIV and LI tags..
 	}
+	
+
 	function sanitize($s) {
 		// to be used in future updates
 		return mysql_escape_string($s);
