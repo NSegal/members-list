@@ -134,8 +134,16 @@ table.cciDirectory td:before {
   color: #000;
 }
 
-/* Unrestrict Directory table width on home and /directory/ */
-body.page-id-43 .site-content,
-body.home .site-content {
-  max-width:74%;
+/* Unrestrict Directory table width on home and other pages */
+body.home .site-content,
+body.page-id-43 .site-content,   /* directory/ */
+body.page-id-442 .site-content,  /* comm-directory/ */
+body.page-id-444 .site-content,  /* scsd-directory/ */
+body.page-id-446 .site-content,  /* office-of-the-dean/ */
+body.page-id-1089 .site-content, /* deans/ */
+body.page-id-1391 .site-content, /* ischool-doc/ */
+body.page-id-1457 .site-content /* ischool-directory/ */
+{
+  width: 74%;
+  max-width: 800px;
 }
