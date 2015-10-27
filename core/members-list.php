@@ -71,7 +71,7 @@ function tern_wp_members_js() {
 	}
 }
 function tern_wp_members_js_root() {
-	echo '<script type="text/javascript">var tern_wp_root = "'.get_bloginfo('home').'";</script>'."\n";
+	echo '<script type="text/javascript">var tern_wp_root = "'.get_bloginfo('url').'";</script>'."\n";
 }
 function tern_wp_members_hide($i) {
 	global $getWP,$tern_wp_members_defaults;
