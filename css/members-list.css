@@ -596,3 +596,45 @@ td,
 th {
   padding: 0;
 }
+
+
+/* Styles that I think are only used on 1 webpage, the web & communications team page */
+
+.team p {
+text-align:center;
+margin-bottom:1em;
+}
+
+.team .circle {
+border:10px solid #FFF;
+border-radius:200%;
+-webkit-border-radius:200%;
+-moz-border-radius:200%;
+-khtml-border-radius:200%;
+overflow:hidden;
+}
+
+.team img {
+display:block;
+width:100%;
+height:auto;
+}
+
+.team .user-name {
+text-align:center;
+font-weight:bold;
+text-transform:uppercase;
+font-size:15px;
+margin:15px 0 5px;
+}
+
+.team .user-title {
+text-align:center;
+font-style:italic;
+margin:0 0 1em;
+}
+
+.team .user-link {
+text-align:center;
+margin-bottom:1em;
+}
