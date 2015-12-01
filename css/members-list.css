@@ -82,7 +82,7 @@ html>/**/body #tern_members .tern_wp_members_list li {height:auto;}
 /* attempt to make site responsive */
 table.cciDirectory {
   margin: 1em 0;
-  min-width: 300px;
+  min-width: 240px;
 }
 table.cciDirectory td {
   display: block;
