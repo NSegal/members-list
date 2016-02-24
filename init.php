@@ -4,7 +4,7 @@ Plugin Name: Members List
 Plugin URI: http://www.ternstyle.us/products/plugins/wordpress/wordpress-members-list-plugin
 Description: List your members with pagination and search capabilities.
 Author: Matthew Praetzel
-Version: 3.6.3
+Version: 10.6.3
 Author URI: http://www.ternstyle.us/
 Licensing : http://www.gnu.org/licenses/gpl-3.0.txt
 */
@@ -22,7 +22,7 @@ Licensing : http://www.gnu.org/licenses/gpl-3.0.txt
 //		Date:
 //			Added on January 29th 2009
 //		Version:
-//			3.6.3
+//			10.6.3
 //		Copyright:
 //			Copyright (c) 2010 Matthew Praetzel.
 //		License:
